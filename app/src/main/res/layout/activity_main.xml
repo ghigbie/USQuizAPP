@@ -39,14 +39,14 @@
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/true1"
+            android:text="@string/true_text"
             android:layout_margin="16dp"/>
 
         <Button
             android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/false1"
+            android:text="@string/false_text"
             android:layout_margin="16dp"/>
 
     </LinearLayout>

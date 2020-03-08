@@ -15,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
 
+        val question: Question = Question(R.string.question_declaration, answerTrue = true)
+
         false_button.setOnClickListener{
             Toast.makeText(this, "False", Toast.LENGTH_SHORT).show()
         }
