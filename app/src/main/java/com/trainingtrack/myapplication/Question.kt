@@ -1,6 +1,14 @@
 package com.trainingtrack.myapplication
 
-data class Question (
-    private val anserResId: Int,
-    private val answerTrue: Boolean
-)
+class Question {
+    var answerResId: Int
+    val answerTrue: Boolean
+
+    constructor(answerResId: Int, answerTrue: Boolean) {
+        this.answerResId = answerResId
+        this.answerTrue = answerTrue
+    }
+
+
+
+}
