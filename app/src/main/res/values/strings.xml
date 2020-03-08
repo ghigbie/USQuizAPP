@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">US Quiz</string>
     <string name="true1">True</string>
     <string name="false1">False</string>
     <string name="question_declaration">The U.S. Declaration of Independence was adopted in 1776</string>
