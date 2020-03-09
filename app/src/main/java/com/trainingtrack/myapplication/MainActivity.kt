@@ -1,13 +1,15 @@
 package com.trainingtrack.myapplication
 
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import android.widget.Toast
 
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity()  {
 
     private lateinit var questionBank: ArrayList<Question>
     private var score: Int = 0
@@ -21,8 +23,12 @@ class MainActivity : AppCompatActivity() {
            Toast.makeText(this, R.string.wrong_answer, Toast.LENGTH_SHORT).show()
        }
         currentQuestionIndex++
-        if(questionBank.size > currentQuestionIndex + 1){
+        if(questionBank.size >= currentQuestionIndex + 1){
             setQuestionText(answer_text_view, currentQuestionIndex)
+        }else{
+            play_again_button.visibility = View.VISIBLE
+            false_button.visibility = View.GONE
+            true_button.visibility = View.GONE
         }
     }
 
@@ -30,10 +36,18 @@ class MainActivity : AppCompatActivity() {
         textView.setText(questionBank[questionIndex].answerResId)
     }
 
+    private fun resetViews(){
+        false_button.visibility = View.VISIBLE
+        true_button.visibility = View.VISIBLE
+        play_again_button.visibility = View.GONE
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+        resetViews()
 
         questionBank = arrayListOf<Question>(
             Question(R.string.question_amendments, answerTrue = false),
@@ -49,13 +63,24 @@ class MainActivity : AppCompatActivity() {
         answer_text_view.setText(questionBank[currentQuestionIndex].answerResId)
 
         false_button.setOnClickListener{
-            Toast.makeText(this, "False", Toast.LENGTH_SHORT).show()
-            checkAnswer(questionBank[currentQuestionIndex], false)
+            if(questionBank.size >= currentQuestionIndex + 1) {
+                Toast.makeText(this, "False", Toast.LENGTH_SHORT).show()
+                checkAnswer(questionBank[currentQuestionIndex], false)
+            }
         }
 
         true_button.setOnClickListener {
-            Toast.makeText(this, "True", Toast.LENGTH_SHORT).show()
-            checkAnswer(questionBank[currentQuestionIndex], true)
+            if(questionBank.size >= currentQuestionIndex + 1) {
+                Toast.makeText(this, "True", Toast.LENGTH_SHORT).show()
+                checkAnswer(questionBank[currentQuestionIndex], true)
+            }
+        }
+
+        play_again_button.setOnClickListener {
+            score = 0
+            currentQuestionIndex = 0
+            setQuestionText(answer_text_view, currentQuestionIndex)
+            resetViews()
         }
 
     }

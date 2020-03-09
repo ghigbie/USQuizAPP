@@ -14,5 +14,5 @@
     <string name="question_government">Journalists is one branch or part of the government.</string>
     <string name="question_government_feds">Congress does not make federal laws.</string>
     <string name="question_government_senators">There are one hundred (100) U.S. Senators.</string>
-    <string name="next_text">next</string>
+    <string name="play_again_text">Play Again</string>
 </resources>
