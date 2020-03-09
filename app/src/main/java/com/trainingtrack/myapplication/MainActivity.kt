@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity()  {
         currentQuestionIndex++
         if(questionBank.size >= currentQuestionIndex + 1){
             setQuestionText(answer_text_view, currentQuestionIndex)
+            setScoreText(score_text, score)
         }else{
             play_again_button.visibility = View.VISIBLE
             false_button.visibility = View.GONE
@@ -36,10 +37,15 @@ class MainActivity : AppCompatActivity()  {
         textView.setText(questionBank[questionIndex].answerResId)
     }
 
+    private fun setScoreText(textView: TextView, score: Int){
+        textView.setText("Score: $score")
+    }
+
     private fun resetViews(){
         false_button.visibility = View.VISIBLE
         true_button.visibility = View.VISIBLE
         play_again_button.visibility = View.GONE
+        setScoreText(score_text, 0)
     }
 
 
