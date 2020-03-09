@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity()  {
        }else{
            Toast.makeText(this, R.string.wrong_answer, Toast.LENGTH_SHORT).show()
        }
-        currentQuestionIndex = (currentQuestionIndex + 1) % questionBank.size
+        currentQuestionIndex++
         if(questionBank.size >= currentQuestionIndex + 1){
             setQuestionText(answer_text_view, currentQuestionIndex)
             setScoreText(score_text, score)
