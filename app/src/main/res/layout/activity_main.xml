@@ -37,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
-            android:src="@mipmap/ic_launcher_round" />
+            android:src="@drawable/ic_cake_black_24dp" />
 
         <TextView
             android:id="@+id/answer_text_view"
